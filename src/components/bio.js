@@ -60,6 +60,7 @@ export default styled(Bio)`
 
 	& img {
 		border-radius: 50%;
+		border: 1px solid pink;
 	}
 
 	& div {

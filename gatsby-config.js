@@ -1,14 +1,14 @@
 module.exports = {
 	siteMetadata: {
-		title: `Ams Starter Blog`,
+		title: `My personal inspiration`,
 		author: {
 			name: `Ren Amélie`,
-			summary: `who lives and works in Paris.`,
+			summary: `Hi, I'm Web Developer. Currently, I'm a frontend developer/web integrator in Freelance.`,
 		},
 		description: `A starter blog demonstrating what Gatsby can do.`,
 		siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
 		social: {
-			twitter: `kylemathews`,
+			instagram: `ren.amelie`,
 		},
 	},
 	plugins: [
@@ -82,7 +82,7 @@ module.exports = {
 				background_color: `#ffffff`,
 				theme_color: `#663399`,
 				display: `minimal-ui`,
-				icon: `content/assets/gatsby-icon.png`,
+				icon: `content/assets/case.png`,
 			},
 		},
 		`gatsby-plugin-react-helmet`,

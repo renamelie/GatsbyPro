@@ -2,9 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import styled from 'styled-components'
-import { rhythm, scale } from '../utils/typography'
-
-import Background from './background'
+import { rhythm } from '../utils/typography'
 
 const Layout = ({ location, title, children, className }) => {
 	const rootPath = `${__PATH_PREFIX__}/`
@@ -12,13 +10,7 @@ const Layout = ({ location, title, children, className }) => {
 
 	if (location.pathname === rootPath) {
 		header = (
-			<h1
-				style={{
-					...scale(1.5),
-					marginBottom: rhythm(1.5),
-					marginTop: 0,
-				}}
-			>
+			<h1>
 				<Link
 					style={{
 						boxShadow: `none`,
@@ -65,7 +57,31 @@ const Layout = ({ location, title, children, className }) => {
 
 export default styled(Layout)`
 	margin: 0 auto;
-	max-width: ${rhythm(24)};
 	padding: ${rhythm(1.5)} ${rhythm(5 / 4)};
-	background: white;
+	transition: 2s;
+
+	/* max-width: 90%; */
+	max-width: 1200px;
+
+	& > header > h1,
+	& > header > h3 {
+		color: rgb(255, 255, 255);
+		font-family: 'Montserrat';
+		font-weight: 300;
+	}
+
+	h1 {
+		font-size: 6vw;
+	}
+
+	h3 {
+		font-size: 4vw;
+	}
+
+	& > header {
+		margin: 5% 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 `

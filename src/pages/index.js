@@ -1,43 +1,39 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
+import { media, pxToRem } from '../utils/helpers'
 
 import Img from 'gatsby-image'
 
 import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import { rhythm } from '../utils/typography'
+import MailchimpForm from '../components/MailchimpForm'
 
-const BlogIndex = ({ data, location }) => {
+const BlogIndex = ({ data, location, className }) => {
 	const siteTitle = data.site.siteMetadata.title
 	const posts = data.allMarkdownRemark.edges
 
 	return (
 		<Layout location={location} title={siteTitle}>
 			<SEO title="All posts" />
-			<Bio />
 			{posts.map(({ node }) => {
 				const title = node.frontmatter.title || node.fields.slug
 				return (
-					<article key={node.fields.slug}>
-						<header>
+					<article className={className} key={node.fields.slug}>
+						<div className="sectionImg">
 							<Img
-								fixed={node.frontmatter.image.childImageSharp.fixed}
-								style={{ float: 'left', marginRight: '16px' }}
+								fluid={node.frontmatter.image.childImageSharp.fluid}
 								alt={title}
 							/>
-							<h3
-								style={{
-									marginBottom: rhythm(1 / 4),
-								}}
-							>
+						</div>
+						<section>
+							<h2>
 								<Link style={{ boxShadow: `none` }} to={node.fields.slug}>
 									{title}
 								</Link>
-							</h3>
+							</h2>
 							<small>{node.frontmatter.date}</small>
-						</header>
-						<section>
 							<p
 								dangerouslySetInnerHTML={{
 									__html: node.frontmatter.description || node.excerpt,
@@ -47,11 +43,67 @@ const BlogIndex = ({ data, location }) => {
 					</article>
 				)
 			})}
+			<MailchimpForm />
+			<Bio />
 		</Layout>
 	)
 }
 
-export default BlogIndex
+export default styled(BlogIndex)`
+	display: flex;
+	flex-direction: column;
+	margin: 2.5rem 0;
+	/* border: 1px solid pink; */
+
+	transition: 0.3s all ease-in-out;
+	box-shadow: 0px 15px 45px -9px rgba(0, 0, 0, 0.2);
+
+	& > * {
+		flex: 1;
+	}
+
+	section {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		background-color: white;
+		padding: ${pxToRem(20)} ${pxToRem(30)};
+	}
+
+	section > * {
+		margin: ${pxToRem(10)};
+	}
+
+	h2,
+	h2 a {
+		font-family: 'Montserrat';
+		font-weight: 700;
+		color: #3f3f3f;
+	}
+
+	small,
+	p {
+		font-family: 'Montserrat';
+		font-weight: 500;
+		color: #8d8d8d;
+	}
+
+	${media.bigMedium`
+		flex-direction: row;
+
+		&:nth-child(odd) .sectionImg {
+			order: 2;
+		}
+
+		section {
+			padding: 0;
+		}
+
+		section > * {
+			margin: ${pxToRem(10)} ${pxToRem(30)};
+		}
+  `};
+`
 
 export const pageQuery = graphql`
 	query {
@@ -73,8 +125,8 @@ export const pageQuery = graphql`
 						description
 						image {
 							childImageSharp {
-								fixed(width: 150, height: 150) {
-									...GatsbyImageSharpFixed_withWebp
+								fluid(maxWidth: 1920, quality: 100) {
+									...GatsbyImageSharpFluid_withWebp
 								}
 							}
 						}

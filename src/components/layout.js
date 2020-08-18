@@ -104,8 +104,8 @@ export default styled(Layout)`
 	/* max-width: 90%; */
 	max-width: 1200px;
 
-	& > header > h1,
-	& > header > h3 {
+	& > header > h1 a,
+	& > header > h3 a {
 		color: rgb(255, 255, 255);
 		font-family: 'Montserrat';
 		font-weight: 300;
@@ -124,6 +124,12 @@ export default styled(Layout)`
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	& > main {
+		width: 90%;
+		min-width: 250px;
+		margin: auto;
 	}
 
 	.titleClass {

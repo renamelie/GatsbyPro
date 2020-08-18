@@ -18,22 +18,22 @@ const BlogIndex = ({ data, location, className }) => {
 	return (
 		<Layout location={location} title={siteTitle}>
 			<SEO title="All posts" />
-			<Zoom right duration={3000}>
+			<Zoom right duration={2000}>
 				{posts.map(({ node }) => {
 					const title = node.frontmatter.title || node.fields.slug
 					return (
 						<article className={className} key={node.fields.slug}>
 							<div className="sectionImg">
-								<Img
-									fluid={node.frontmatter.image.childImageSharp.fluid}
-									alt={title}
-								/>
+								<Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+									<Img
+										fluid={node.frontmatter.image.childImageSharp.fluid}
+										alt={title}
+									/>
+								</Link>
 							</div>
 							<section>
 								<h2>
-									<Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-										{title}
-									</Link>
+									<Link to={node.fields.slug}>{title}</Link>
 								</h2>
 								<small>{node.frontmatter.date}</small>
 								<p
@@ -89,6 +89,17 @@ export default styled(BlogIndex)`
 		font-family: 'Montserrat';
 		font-weight: 500;
 		color: #8d8d8d;
+	}
+
+	.sectionImg img {
+		transition: transform 01s ease !important;
+		position: absolute;
+	}
+
+	.sectionImg:hover img {
+		transform: scale(1.2);
+		background-color: black;
+		filter: brightness(60%);
 	}
 
 	${media.bigMedium`

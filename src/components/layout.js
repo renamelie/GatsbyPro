@@ -45,13 +45,7 @@ const Layout = ({ location, title, children, className }) => {
 	if (location.pathname === rootPath) {
 		header = (
 			<h1>
-				<Link
-					style={{
-						boxShadow: `none`,
-						color: `inherit`,
-					}}
-					to={`/`}
-				>
+				<Link to={`/`}>
 					{/* {title} */}
 					<Title />
 				</Link>
@@ -65,13 +59,7 @@ const Layout = ({ location, title, children, className }) => {
 					marginTop: 0,
 				}}
 			>
-				<Link
-					style={{
-						boxShadow: `none`,
-						color: `inherit`,
-					}}
-					to={`/`}
-				>
+				<Link to={`/`}>
 					{/* {title} */}
 					<Title />
 				</Link>
@@ -106,9 +94,9 @@ export default styled(Layout)`
 
 	& > header > h1 a,
 	& > header > h3 a {
-		color: rgb(255, 255, 255);
 		font-family: 'Montserrat';
-		font-weight: 300;
+		font-weight: 400;
+		color: black;
 	}
 
 	h1 {
@@ -127,7 +115,7 @@ export default styled(Layout)`
 	}
 
 	& > main {
-		width: 90%;
+		/* width: 90%; */
 		min-width: 250px;
 		margin: auto;
 	}
@@ -148,10 +136,11 @@ export default styled(Layout)`
 		color: pink;
 	}
 
-	& footer {
+	& footer:last-child {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		font-weight: 500;
 	}
 
 	& svg {

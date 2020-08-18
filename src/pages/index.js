@@ -28,7 +28,7 @@ const BlogIndex = ({ data, location, className }) => {
 									<Img
 										fluid={node.frontmatter.image.childImageSharp.fluid}
 										alt={title}
-									/>
+									></Img>
 								</Link>
 							</div>
 							<section>
@@ -99,7 +99,7 @@ export default styled(BlogIndex)`
 	.sectionImg:hover img {
 		transform: scale(1.2);
 		background-color: black;
-		filter: brightness(60%);
+		filter: brightness(40%);
 	}
 
 	${media.bigMedium`

@@ -115,6 +115,10 @@ export default styled(BlogPostTemplate)`
 		margin: 0 2rem;
 	}
 
+	& nav {
+		width: 100%;
+	}
+
 	& nav ul {
 		display: flex;
 		flex-wrap: wrap;

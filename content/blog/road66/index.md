@@ -1,6 +1,6 @@
 ---
 title: USA, Road 66
-date: '2015-05-01T22:12:03.284Z'
+date: '2025-05-01T22:12:03.284Z'
 image: './road66.jpg'
 ---
 

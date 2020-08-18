@@ -45,6 +45,6 @@ export default styled(background)`
 	position: absolute;
 
 	img {
-		filter: grayscale(60%);
+		filter: grayscale(70%);
 	}
 `

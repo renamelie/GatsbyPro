@@ -4,10 +4,11 @@ import { Link } from 'gatsby'
 import { Fade } from 'react-reveal'
 import styled from 'styled-components'
 import { rhythm } from '../utils/typography'
+import { BsHeartHalf } from 'react-icons/bs'
 
 const Title = () => {
 	return (
-		<Fade top>
+		<Fade top duration={1000}>
 			<span className="titleClass">
 				<p>M</p>
 				<p>y</p>
@@ -82,9 +83,14 @@ const Layout = ({ location, title, children, className }) => {
 			<header>{header}</header>
 			<main>{children}</main>
 			<footer>
-				© {new Date().getFullYear()}, Built with
-				{` `}
-				<a href="https://www.gatsbyjs.org">Gatsby</a>
+				Made with love <BsHeartHalf /> by
+				<a
+					href="https://renamelie.netlify.app/"
+					target="_blank"
+					rel="noreferrer"
+				>
+					renamelie
+				</a>
 			</footer>
 		</div>
 	)
@@ -134,5 +140,15 @@ export default styled(Layout)`
 	.titleClass > *:hover {
 		animation-name: rubberBand;
 		color: pink;
+	}
+
+	& footer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	& svg {
+		color: darkred;
 	}
 `

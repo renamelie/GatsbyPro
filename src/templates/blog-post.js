@@ -9,6 +9,7 @@ import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
+import { Fade } from 'react-reveal'
 
 const renderAst = new RehypeReact({
 	createElement: React.createElement,
@@ -27,63 +28,64 @@ const BlogPostTemplate = ({ data, pageContext, location, className }) => {
 				description={post.frontmatter.description || post.excerpt}
 			/>
 			<div className={className}>
-				<div>
-					<article>
-						<header>
-							<Img
-								fluid={post.frontmatter.image.childImageSharp.fluid}
-								alt={post.frontmatter.title}
-							/>
-						</header>
-						<main>
-							<h1
-								style={{
-									marginTop: rhythm(1),
-									marginBottom: 0,
-								}}
-							>
-								{post.frontmatter.title}
-							</h1>
-							<p
-								style={{
-									...scale(-1 / 5),
-									display: `block`,
-									marginBottom: rhythm(1),
-								}}
-							>
-								{post.frontmatter.date}
-							</p>
-							{/* <section dangerouslySetInnerHTML={{ __html: post.html }} /> */}
-							<div>{renderAst(post.htmlAst)}</div>
-							<hr
-								style={{
-									marginBottom: rhythm(1),
-								}}
-							/>
-						</main>
-						<footer>
-							<nav>
-								<ul>
-									<li>
-										{previous && (
-											<Link to={previous.fields.slug} rel="prev">
-												← {previous.frontmatter.title}
-											</Link>
-										)}
-									</li>
-									<li>
-										{next && (
-											<Link to={next.fields.slug} rel="next">
-												{next.frontmatter.title} →
-											</Link>
-										)}
-									</li>
-								</ul>
-							</nav>
-						</footer>
-					</article>
-				</div>
-
+				<Fade left duration={1000}>
+					<div>
+						<article>
+							<header>
+								<Img
+									fluid={post.frontmatter.image.childImageSharp.fluid}
+									alt={post.frontmatter.title}
+								/>
+							</header>
+							<main>
+								<h1
+									style={{
+										marginTop: rhythm(1),
+										marginBottom: 0,
+									}}
+								>
+									{post.frontmatter.title}
+								</h1>
+								<p
+									style={{
+										...scale(-1 / 5),
+										display: `block`,
+										marginBottom: rhythm(1),
+									}}
+								>
+									{post.frontmatter.date}
+								</p>
+								{/* <section dangerouslySetInnerHTML={{ __html: post.html }} /> */}
+								<div>{renderAst(post.htmlAst)}</div>
+								<hr
+									style={{
+										marginBottom: rhythm(1),
+									}}
+								/>
+							</main>
+							<footer>
+								<nav>
+									<ul>
+										<li>
+											{previous && (
+												<Link to={previous.fields.slug} rel="prev">
+													← {previous.frontmatter.title}
+												</Link>
+											)}
+										</li>
+										<li>
+											{next && (
+												<Link to={next.fields.slug} rel="next">
+													{next.frontmatter.title} →
+												</Link>
+											)}
+										</li>
+									</ul>
+								</nav>
+							</footer>
+						</article>
+					</div>
+				</Fade>
 				<Bio />
 			</div>
 		</Layout>

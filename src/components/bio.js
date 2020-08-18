@@ -1,8 +1,9 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
-import styled from 'styled-components'
 
+import styled from 'styled-components'
+import { Fade } from 'react-reveal'
 import { pxToRem, media } from '../utils/helpers'
 
 const Bio = ({ className }) => {
@@ -31,22 +32,24 @@ const Bio = ({ className }) => {
 
 	const { author, social } = data.site.siteMetadata
 	return (
-		<div className={className}>
-			<Image fixed={data.avatar.childImageSharp.fixed} alt={author.name} />
-			<p>
-				{author.summary}{' '}
-				<a
-					href={`https://www.instagram.com/${social.instagram}`}
-					target="_blank"
-					rel="noreferrer"
-				>
-					Follow me on Insta
-				</a>{' '}
-				!
-				<br />
-				<strong>{author.name}</strong>
-			</p>
-		</div>
+		<Fade top>
+			<div className={className}>
+				<Image fixed={data.avatar.childImageSharp.fixed} alt={author.name} />
+				<p>
+					{author.summary}{' '}
+					<a
+						href={`https://www.instagram.com/${social.instagram}`}
+						target="_blank"
+						rel="noreferrer"
+					>
+						Follow me on Insta
+					</a>{' '}
+					!
+					<br />
+					<strong>{author.name}</strong>
+				</p>
+			</div>
+		</Fade>
 	)
 }
 

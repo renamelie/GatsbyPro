@@ -1,31 +1,39 @@
 import React from 'react'
 import styled from 'styled-components'
 import { pxToRem, media } from '../utils/helpers'
+import { Fade } from 'react-reveal'
 
 const MailchimpForm = ({ className }) => {
 	return (
 		<div className={className}>
-			<p>
-				<strong>Subscribe</strong> to get
-			</p>
-			<p>my latest updates</p>
+			<Fade left>
+				<p>
+					<strong>Subscribe</strong> to get
+				</p>
+				<p>my latest updates</p>
+			</Fade>
+			<Fade right>
+				<form
+					name="mailchimp"
+					method="POST"
+					data-netlify="true"
+					data-netlify-honeypot="bot-field"
+					action="/success"
+				>
+					<input type="hidden" name="form-name" value="mailchimp" />
+					<input type="hidden" name="bot-field" />
 
-			<form
-				name="mailchimp"
-				method="POST"
-				data-netlify="true"
-				data-netlify-honeypot="bot-field"
-				// action="/success"
-			>
-				<input type="hidden" name="form-name" value="mailchimp" />
-				<input type="hidden" name="bot-field" />
+					<label>
+						<input
+							type="email"
+							name="email"
+							placeholder="Enter your email :)"
+						/>
+					</label>
 
-				<label>
-					<input type="email" name="email" placeholder="Enter your email :)" />
-				</label>
-
-				<button type="submit">SEND</button>
-			</form>
+					<button type="submit">SEND</button>
+				</form>
+			</Fade>
 		</div>
 	)
 }

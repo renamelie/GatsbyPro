@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { media, pxToRem } from '../utils/helpers'
+import { Zoom } from 'react-reveal'
 
 import Img from 'gatsby-image'
 
@@ -17,32 +18,34 @@ const BlogIndex = ({ data, location, className }) => {
 	return (
 		<Layout location={location} title={siteTitle}>
 			<SEO title="All posts" />
-			{posts.map(({ node }) => {
-				const title = node.frontmatter.title || node.fields.slug
-				return (
-					<article className={className} key={node.fields.slug}>
-						<div className="sectionImg">
-							<Img
-								fluid={node.frontmatter.image.childImageSharp.fluid}
-								alt={title}
-							/>
-						</div>
-						<section>
-							<h2>
-								<Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-									{title}
-								</Link>
-							</h2>
-							<small>{node.frontmatter.date}</small>
-							<p
-								dangerouslySetInnerHTML={{
-									__html: node.frontmatter.description || node.excerpt,
-								}}
-							/>
-						</section>
-					</article>
-				)
-			})}
+			<Zoom right duration={3000}>
+				{posts.map(({ node }) => {
+					const title = node.frontmatter.title || node.fields.slug
+					return (
+						<article className={className} key={node.fields.slug}>
+							<div className="sectionImg">
+								<Img
+									fluid={node.frontmatter.image.childImageSharp.fluid}
+									alt={title}
+								/>
+							</div>
+							<section>
+								<h2>
+									<Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+										{title}
+									</Link>
+								</h2>
+								<small>{node.frontmatter.date}</small>
+								<p
+									dangerouslySetInnerHTML={{
+										__html: node.frontmatter.description || node.excerpt,
+									}}
+								/>
+							</section>
+						</article>
+					)
+				})}
+			</Zoom>
 			<MailchimpForm />
 			<Bio />
 		</Layout>

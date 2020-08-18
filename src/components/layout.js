@@ -1,8 +1,41 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import { Fade } from 'react-reveal'
 import styled from 'styled-components'
 import { rhythm } from '../utils/typography'
+
+const Title = () => {
+	return (
+		<Fade top>
+			<span className="titleClass">
+				<p>M</p>
+				<p>y</p>
+				<p>&nbsp;</p>
+				<p>p</p>
+				<p>e</p>
+				<p>r</p>
+				<p>s</p>
+				<p>o</p>
+				<p>n</p>
+				<p>a</p>
+				<p>l</p>
+				<p>&nbsp;</p>
+				<p>i</p>
+				<p>n</p>
+				<p>s</p>
+				<p>p</p>
+				<p>i</p>
+				<p>r</p>
+				<p>a</p>
+				<p>t</p>
+				<p>i</p>
+				<p>o</p>
+				<p>n</p>
+			</span>
+		</Fade>
+	)
+}
 
 const Layout = ({ location, title, children, className }) => {
 	const rootPath = `${__PATH_PREFIX__}/`
@@ -18,7 +51,8 @@ const Layout = ({ location, title, children, className }) => {
 					}}
 					to={`/`}
 				>
-					{title}
+					{/* {title} */}
+					<Title />
 				</Link>
 			</h1>
 		)
@@ -37,7 +71,8 @@ const Layout = ({ location, title, children, className }) => {
 					}}
 					to={`/`}
 				>
-					{title}
+					{/* {title} */}
+					<Title />
 				</Link>
 			</h3>
 		)
@@ -83,5 +118,21 @@ export default styled(Layout)`
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	.titleClass {
+		display: flex;
+		justify-content: center;
+	}
+
+	.titleClass > * {
+		animation-duration: 1s;
+		animation-fill-mode: both;
+		animation-iteration-count: 1;
+	}
+
+	.titleClass > *:hover {
+		animation-name: rubberBand;
+		color: pink;
 	}
 `

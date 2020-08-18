@@ -19,18 +19,12 @@ const MailchimpForm = ({ className }) => {
 			>
 				<input type="hidden" name="form-name" value="mailchimp" />
 				<input type="hidden" name="bot-field" />
-				<p>
-					<label>
-						<input
-							type="email"
-							name="email"
-							placeholder="Enter your email :)"
-						/>
-					</label>
-				</p>
-				<p>
-					<button type="submit">SEND</button>
-				</p>
+
+				<label>
+					<input type="email" name="email" placeholder="Enter your email :)" />
+				</label>
+
+				<button type="submit">SEND</button>
 			</form>
 		</div>
 	)
@@ -43,15 +37,17 @@ export default styled(MailchimpForm)`
 	align-items: center;
 	padding: 1rem;
 	color: #3f3f3f;
+	font-family: 'Montserrat';
+	font-weight: 400;
+	font-size: 1rem;
+
 
 	form {
 		display: flex;
 	}
 
 	& p {
-		font-family: 'Montserrat';
-		font-weight: 400;
-		font-size: 1.8vw;
+		font-size: 1.5rem;
 		margin: 0;
 	}
 
@@ -63,6 +59,7 @@ export default styled(MailchimpForm)`
 		outline: none;
 		transition: 0.3s all ease-in-out;
 		margin: ${pxToRem(10)};
+		font-weight: 500;
 	}
 
 	& input {

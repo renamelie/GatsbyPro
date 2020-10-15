@@ -1,7 +1,21 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <h1 align="center">
-  My personal inspiration
+  My personnal inspiration
 </h1>
 
-Hi, I'm Web Developer. Currently, I'm a frontend developer/web integrator in Freelance. [Follow me on Insta](https://www.instagram.com/renamelie/) !
-[Ren Amélie](https://gatsbypro.netlify.app/)
+<p align="center">
+  <a href="https://gatsbypro.netlify.app/">
+    <img alt="My personnal inspiration" src="https://raw.githubusercontent.com/renamelie/photosPortfolio/master/myinspiration-01.png" width="1000" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://gatsbypro.netlify.app/">
+    <img alt="My personnal inspiration" src="https://raw.githubusercontent.com/renamelie/photosPortfolio/master/myinspiration-02.png" width="1000" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://gatsbypro.netlify.app/">
+    <img alt="My personnal inspiration" src="https://raw.githubusercontent.com/renamelie/photosPortfolio/master/myinspiration-03.png" width="1000" />
+  </a>
+</p>

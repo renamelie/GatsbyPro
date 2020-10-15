@@ -8,7 +8,7 @@ const Global = createGlobalStyle`
 
   body {
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(-45deg, #ddd6f3, #faaca8, #2c3e50, #bdc3c7);
+    background: linear-gradient(-45deg, #ddd6f3, #AD9290, #2c3e50, #bdc3c7);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
   }
